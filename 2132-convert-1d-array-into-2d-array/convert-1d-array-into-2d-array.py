@@ -3,12 +3,9 @@ class Solution:
 
         l=[]
         if n*m!=len(orl):return l
-        for i in range(m):
-            l1=[]
-            for j in range(n):
-                l1.append(orl[j])
-            orl=orl[n:]
-            l.append(l1)
+        for i in range(0,len(orl),n):
+            a=orl[i:n+i]
+            l.append(a)
         return l
 
         
