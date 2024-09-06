@@ -3,13 +3,13 @@ public:
     int subarraySum(vector<int>& nums, int k) {
         unordered_map<int,int>mpp;
         mpp[0]=1;
-        int s=0,c=0;
-        for(int i=0;i<nums.size();i++){
-            s+=nums[i];
-            int a=s-k;
-            c+=mpp[a];
-            mpp[s]++;
+        int a=0,b=0;
+        for(auto it:nums){
+            a+=it;
+            int diff=a-k;
+            b+=mpp[diff];
+            mpp[a]++;
         }
-        return c;
+        return b;
     }
 };
