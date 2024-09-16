@@ -5,9 +5,7 @@ class Solution:
             a=i.index(':')
             x=i[:a]
             y=i[a+1:]
-            if 60*int(x)+int(y)==0:
-                l.append(1440)
-            else:l.append(60*int(x)+int(y))
+            l.append(60*int(x)+int(y))
         l.sort()
         res=1440
         for i in range(len(l)-1):
