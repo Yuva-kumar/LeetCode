@@ -4,6 +4,10 @@ class Solution:
         a=1
         for i in range(len(w)-1):
             if w[i]==w[i+1]:
+                if a==9:
+                    l.append(9)
+                    l.append(w[i])
+                    a=0
                 a+=1
             else:
                 l.append(a)
@@ -13,11 +17,6 @@ class Solution:
         l.append(w[-1])
         res=""
         for i in range(0,len(l),2):
-            k=l[i]//9
-            for j in range(k):
-                res+='9'+l[i+1]
-            s=l[i]%9
-            if s!=0:
-                res+=str(s)+l[i+1]
-
+            res+=str(l[i])+l[i+1]
         return res
+      
