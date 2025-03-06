@@ -1,6 +1,6 @@
 class Solution:
     def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
-        l=[0]*(10**5)
+        l=[0]*(50*50+1)
         for i in grid:
             for j in i:
                 l[j]+=1
