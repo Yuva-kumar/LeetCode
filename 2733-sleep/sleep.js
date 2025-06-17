@@ -4,14 +4,20 @@
  */
 async function sleep(millis) {
 
-    const promise = new Promise((resolve,reject) => {
-        setTimeout(() => {
-            resolve(millis)
-        },millis)
-        
+    return new Promise((resolve,reject) => {
+        setTimeout(resolve,millis)
     })
+
+
+
+    // const promise = new Promise((resolve,reject) => {
+    //     setTimeout(() => {
+    //         resolve(millis)
+    //     },millis)
+        
+    // })
     
-    return promise.then((res) => res)
+    // return promise.then((res) => res)
 
   
 }
