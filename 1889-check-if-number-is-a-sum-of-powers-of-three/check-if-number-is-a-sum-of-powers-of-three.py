@@ -1,26 +1,30 @@
 class Solution:
     def checkPowersOfThree(self, n: int) -> bool:
 
+
+
         def fun(num):
-            k = int(num**(1/3))
-            while 3 ** k > num:
-                k -= 1  
-            diff = num - 3**k
+            k = 0
+            while 3**k <= num:
+                k+=1
+            k-=1
+            
+            diff = abs(num - 3**k)
             return diff, k
 
         temp = n
-        power = set()
-
         while True:
-            if temp == 0:
+            if temp == 0 or temp == 1 :
                 return True
+
+            if temp == 2: 
+                return False
 
             diff, k = fun(temp)
 
-            if k in power:
-                return False  
+            if (diff >= 3**k):
+                return False
 
-            power.add(k)
             temp = diff
 
-    
+        
