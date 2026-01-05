@@ -1,22 +1,18 @@
 class Solution:
     def maxMatrixSum(self, matrix: List[List[int]]) -> int:
-        
-        l1,l2 = [],[]
+        res, nc = 0,0
+        ps,ns = 2**31,2**31
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
-                if matrix[i][j] >= 0 :
-                    l1.append(matrix[i][j])
+                if(matrix[i][j]) < 0:
+                    nc += 1
+                    res += matrix[i][j]*-1
+                    ns = min(ns,matrix[i][j]*-1)
                 else:
-                    l2.append(matrix[i][j]*-1)
-        
-
-        res = sum(l1)+sum(l2)
-        if(len(l2) % 2 ==0):
+                    res += matrix[i][j]
+                    ps = min(ps,matrix[i][j])
+        if nc%2 == 0:
             return res
         else:
-            if(len(l2) == 0):
-                return sum(l1)
-            elif len(l1) ==0:
-                return sum(l2) - 2*min(l2)
-
-            return res-2*min(min(l1),min(l2))
+            return res-2*min(ps,ns)
+           
