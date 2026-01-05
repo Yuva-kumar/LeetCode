@@ -9,7 +9,7 @@ class Solution:
                 else:
                     l2.append(matrix[i][j]*-1)
         
-        l2.sort()
+
         res = sum(l1)+sum(l2)
         if(len(l2) % 2 ==0):
             return res
