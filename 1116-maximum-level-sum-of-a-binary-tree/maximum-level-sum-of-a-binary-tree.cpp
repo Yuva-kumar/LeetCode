@@ -41,7 +41,6 @@ public:
                 max_sum = curr_sum;
                 res = i;
             }
-
             
         }
 
