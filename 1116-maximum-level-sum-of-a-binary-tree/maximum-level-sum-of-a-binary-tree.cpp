@@ -15,31 +15,36 @@ public:
 
         queue<TreeNode*>qu;
         qu.push(root);
-        long long kk=LLONG_MIN;
-        int res=0;
-        int i=0;
+        long long max_sum = LLONG_MIN;
+        int res = 0;
+        int i = 0;
         while(!qu.empty()){
+
             i++;
-            int k=qu.size();
-            long long s=0;
-            for(int i=0;i<k;i++){
-                TreeNode* a= qu.front();
+            int qu_size = qu.size();
+            int curr_sum = 0;
+            for(int j = 0; j < qu_size; j++ ){
+                TreeNode* node = qu.front();
+                curr_sum += node->val;
                 qu.pop();
-                s+=a->val;
-                if (a->left !=NULL){
-                    qu.push(a->left);
+
+                if(node->left != NULL){
+                    qu.push(node->left);
                 }
-                if (a->right !=NULL){
-                    qu.push(a->right);
+                if(node->right != NULL){
+                    qu.push(node->right);
                 }
+
             }
-            if (s>kk){
-                kk=s;
-                res=i;
+
+            if(curr_sum > max_sum){
+                max_sum = curr_sum;
+                res = i;
             }
-  
+
+            
         }
-        return res;      
-        
+
+        return res;        
     }
 };
